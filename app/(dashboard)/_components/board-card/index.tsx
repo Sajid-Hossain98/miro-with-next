@@ -48,7 +48,7 @@ export const BoardCard = ({
           isFavorite={isFavorite}
           title={title}
           authorLabel={authorLabel}
-          createdAtLabel={createdAt}
+          createdAtLabel={createdAtLabel}
           onClick={() => {}}
           disabled={false}
         />
