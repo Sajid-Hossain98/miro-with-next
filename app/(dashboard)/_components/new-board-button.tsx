@@ -21,7 +21,7 @@ export const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
       title: "Untitled",
     })
       .then((id) => {
-        toast.success("Board created");
+        toast.success("Board created!");
         //TODO: redirect to /board/{id}
       })
       .catch(() => "Failed to create board!");
@@ -33,7 +33,8 @@ export const NewBoardButton = ({ orgId, disabled }: NewBoardButtonProps) => {
       onClick={onClick}
       className={cn(
         "col-span-1 aspect-[100/127] bg-blue-600 rounded-lg hover:bg-blue-800 flex flex-col items-center justify-center py-6 w-full h-full",
-        pending || (disabled && "opacity-75")
+        (pending || disabled) &&
+          "opacity-75 hover:bg-blue-600 cursor-not-allowed"
       )}
     >
       <div />
