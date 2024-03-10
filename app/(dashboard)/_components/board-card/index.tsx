@@ -7,6 +7,8 @@ import { formatDistanceToNow } from "date-fns";
 import { useAuth } from "@clerk/nextjs";
 import { Footer } from "./footer";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Actions } from "@/components/actions";
+import { Button } from "@/components/ui/button";
 
 interface BoardCardProps {
   id: string;
@@ -43,6 +45,9 @@ export const BoardCard = ({
           <Image src={imageUrl} alt={title} fill className="object-fit" />
 
           <Overlay />
+          <Actions id={id} title={title} side="right">
+            <Button>I am a button</Button>
+          </Actions>
         </div>
 
         <Footer
