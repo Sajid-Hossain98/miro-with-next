@@ -1,6 +1,14 @@
 "use client";
 
 import { DropdownMenuContentProps } from "@radix-ui/react-dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Link2 } from "lucide-react";
 
 interface ActionProps {
   children: React.ReactNode;
@@ -11,5 +19,23 @@ interface ActionProps {
 }
 
 export const Actions = ({ children, side, sideOffSet }: ActionProps) => {
-  return <div>Actions</div>;
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
+
+      <DropdownMenuContent
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        side={side}
+        sideOffset={sideOffSet}
+        className="w-60"
+      >
+        <DropdownMenuItem className="p-3 cursor-pointer">
+          <Link2 className="h-4 w-3 mr-2" />
+          Copy board link
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
 };
