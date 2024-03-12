@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Link2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface ActionProps {
   children: React.ReactNode;
@@ -18,7 +19,24 @@ interface ActionProps {
   title: string;
 }
 
-export const Actions = ({ children, side, sideOffSet }: ActionProps) => {
+export const Actions = ({
+  children,
+  side,
+  sideOffSet,
+  id,
+  title,
+}: ActionProps) => {
+  const onCopyLink = () => {
+    navigator.clipboard
+      .writeText(`${window.location.origin}/board/${id}`)
+      .then(() => {
+        toast.success("Link Copied");
+      })
+      .catch(() => {
+        toast.error("Failed to copy link");
+      });
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
@@ -31,7 +49,7 @@ export const Actions = ({ children, side, sideOffSet }: ActionProps) => {
         sideOffset={sideOffSet}
         className="w-60"
       >
-        <DropdownMenuItem className="p-3 cursor-pointer">
+        <DropdownMenuItem className="p-3 cursor-pointer" onClick={onCopyLink}>
           <Link2 className="h-4 w-3 mr-2" />
           Copy board link
         </DropdownMenuItem>
