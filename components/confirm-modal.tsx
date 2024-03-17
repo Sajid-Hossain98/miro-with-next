@@ -28,7 +28,7 @@ export const ConfirmModal = ({
   description,
 }: ConfirmModalProps) => {
   const handleConfirm = () => {
-    onConfirm;
+    onConfirm();
   };
 
   return (
