@@ -1,3 +1,4 @@
+import { Room } from "@/components/room";
 import { Canvas } from "./_components/canvas";
 
 interface boardIdPageProps {
@@ -7,7 +8,11 @@ interface boardIdPageProps {
 }
 
 const BoardIdPage = ({ params }: boardIdPageProps) => {
-  return <Canvas boardId={params.boardId} />;
+  return (
+    <Room roomId={params.boardId}>
+      <Canvas boardId={params.boardId} />;
+    </Room>
+  );
 };
 
 export default BoardIdPage;
