@@ -9,7 +9,7 @@ import {
   Undo2,
 } from "lucide-react";
 import { ToolButton } from "./tool-button";
-import { CanvasState } from "@/types/canvas";
+import { CanvasMode, CanvasState, LayerType } from "@/types/canvas";
 
 interface ToolbarProps {
   canvasState: CanvasState;
@@ -34,14 +34,28 @@ export const Toolbar = ({
         <ToolButton
           label="Select"
           icon={MousePointer2}
-          onClick={() => {}}
-          isActive={false}
+          onClick={() => setCanvasState({ mode: CanvasMode.None })}
+          isActive={
+            canvasState.mode === CanvasMode.None ||
+            canvasState.mode === CanvasMode.Translating ||
+            canvasState.mode === CanvasMode.SelectionNet ||
+            canvasState.mode === CanvasMode.Pressing ||
+            canvasState.mode === CanvasMode.Resizing
+          }
         />
         <ToolButton
           label="Text"
           icon={Type}
-          onClick={() => {}}
-          isActive={false}
+          onClick={() =>
+            setCanvasState({
+              mode: CanvasMode.Inserting,
+              layerType: LayerType.Text,
+            })
+          }
+          isActive={
+            canvasState.mode === CanvasMode.Inserting &&
+            canvasState.layerType === LayerType.Text
+          }
         />
         <ToolButton
           label="Sticky note"
@@ -62,7 +76,7 @@ export const Toolbar = ({
           isActive={false}
         />
         <ToolButton
-          label="Ellipse"
+          label="Pencil"
           icon={Pencil}
           onClick={() => {}}
           isActive={false}
