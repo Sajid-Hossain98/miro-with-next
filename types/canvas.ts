@@ -93,21 +93,32 @@ export type CanvasState =
     }
   | {
       mode: CanvasMode.SelectionNet;
+      origin: Point;
+      current?: Point;
     }
   | {
       mode: CanvasMode.Translating;
+      current: Point;
     }
   | {
       mode: CanvasMode.Inserting;
+      layerType:
+        | LayerType.Ellipse
+        | LayerType.Rectangle
+        | LayerType.Text
+        | LayerType.Note;
     }
   | {
       mode: CanvasMode.Pencil;
     }
   | {
       mode: CanvasMode.Pressing;
+      origin: Point;
     }
   | {
       mode: CanvasMode.Resizing;
+      initialBounce: XYWH;
+      corner: Side;
     };
 
 export enum CanvasMode {
