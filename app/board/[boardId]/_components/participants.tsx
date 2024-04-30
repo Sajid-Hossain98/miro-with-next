@@ -48,6 +48,6 @@ export const Participants = () => {
 
 export const ParticipantSkeleton = () => {
   return (
-    <div className="absolute h-12 top-2 right-2 bg-white rounded-md flex items-center shadow-md p-3 w-[100px]" />
+    <div className="absolute h-12 top-2 right-2 bg-gray-200 animate-pulse rounded-md flex items-center shadow-md p-3 w-[100px]" />
   );
 };
