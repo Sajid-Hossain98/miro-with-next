@@ -52,5 +52,5 @@ export const useSelectionBounds = () => {
       .filter(Boolean);
 
     return boundingBox(selectedLayers);
-  });
+  }, shallow);
 };
