@@ -91,9 +91,18 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     [lastUsedColor]
   );
 
+  const resizeSelectedLayer = useMutation(({ storage, self }, point: Point) => {
+    if (canvasState.mode !== CanvasMode.Resizing) {
+      return;
+    }
+  }, []);
+
   const onResizeHandlePointerDown = useCallback(
     (corner: Side, initialBounds: XYWH) => {
+      console.log({ corner, initialBounds });
+
       history.pause();
+
       setCanvasState({
         mode: CanvasMode.Resizing,
         initialBounds,
@@ -116,9 +125,13 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
       const current = pointerEventToCanvasPoint(e, camera);
 
+      if (canvasState.mode === CanvasMode.Resizing) {
+        console.log("RESIZING");
+      }
+
       setMyPresence({ cursor: current });
     },
-    []
+    [canvasState]
   );
 
   const onPointerLeave = useMutation(({ setMyPresence }) => {
