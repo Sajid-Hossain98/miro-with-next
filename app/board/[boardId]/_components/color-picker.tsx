@@ -13,9 +13,65 @@ export const ColorPicker = ({ onChange }: ColorPickerProps) => {
       <ColorBtn
         onClick={onChange}
         color={{
-          r: 244,
-          g: 33,
-          b: 129,
+          r: 243,
+          g: 82,
+          b: 35,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 255,
+          g: 249,
+          b: 177,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 68,
+          g: 202,
+          b: 99,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 39,
+          g: 142,
+          b: 237,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 155,
+          g: 105,
+          b: 245,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 252,
+          g: 142,
+          b: 42,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 0,
+          g: 0,
+          b: 0,
+        }}
+      />
+      <ColorBtn
+        onClick={onChange}
+        color={{
+          r: 255,
+          g: 255,
+          b: 255,
         }}
       />
     </div>
