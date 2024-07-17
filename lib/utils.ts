@@ -177,5 +177,5 @@ export function getSvgPathFromStroke(stroke: number[][]) {
 
   d.push("Z");
 
-  return d.join;
+  return d.join(" ");
 }
